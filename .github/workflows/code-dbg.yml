@@ -1,0 +1,30 @@
+name: GitHub Actions Build and Deploy Demo
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    # make sure these permissions are set so that
+    # VS Code can connect to the machine
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-22.04
+    strategy:
+       fail-fast: false
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+    # - name: Setup binfmt_misc
+    #   run: docker run --rm --privileged aptman/qus -s -- -p aarch64 arm
+    - name: 🐛 Debug Build
+      uses: stateful/vscode-server-action@v1
+      if: failure()
+      with:
+        timeout: '3000000'
