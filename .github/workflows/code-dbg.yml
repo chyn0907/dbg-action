@@ -16,5 +16,5 @@ jobs:
       run: wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
     - name: Start
       run: |
-        code-server --accept-server-license-terms rename --name "${GITHUB_RUN_ID}.${GITHUB_RUN_NUMBER}"
+        code-server --accept-server-license-terms rename --name "${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}"
         code-server --accept-server-license-terms
