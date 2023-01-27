@@ -15,4 +15,4 @@ jobs:
     - name: Install vscode-server
       run: wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
     - name: Start
-      run: python main.py
+      run: python -u main.py
