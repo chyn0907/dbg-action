@@ -35,4 +35,6 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: python3 -u main.py
+          script: |
+            wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
+            python3 -u main.py
